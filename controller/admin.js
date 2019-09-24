@@ -1,9 +1,11 @@
 const con = require('../database/connection');
-
+var datFormat =require('dateformat');
 module.exports.index=(req,res)=>{
     query= "select * from event";
     con.query(query,(err,result)=>{
-        console.log(result);
+        result.forEach((item)=>{
+            item.date=datFormat(item.date,"yyyy-mm-dd");
+        });
         res.render('index', { title: 'All Events', events :result });
     })
 }
@@ -43,7 +45,7 @@ module.exports.editGet=(req,res)=>{
     var id = req.params.id;
     var query="select * from event where id= '"+id+"'";
     con.query(query,(err,result)=>{
-        console.log(result)
+        result[0].date = datFormat(result[0].date,"yyyy-mm-dd");
         res.render('editEvent', { title: 'Update Event', event:result[0] });
     })
 }
