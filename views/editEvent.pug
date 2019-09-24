@@ -1,0 +1,21 @@
+extends layout
+
+block content
+ .container
+   .col-xl-8.offset-md-2
+        h1.text-center #{title} 
+        form(action='/update' method="POST" enctype="multipart/form-data")
+            .form-group
+                label(for='id') Name:
+                input#id.form-control(type='text' name='id' value=event.id)
+            .form-group
+                label(for='name') Name:
+                input#name.form-control(type='text' name='name' value=event.name)
+            .form-group
+                label(for='name') Date:
+                input#date.form-control(type='date' name='date' value=event.date)
+            .form-group
+                label(for='name') Image:
+                input#image.form-control(type='file' name='image')
+            .form-group
+                button.btn.btn-primary(type='submit') Submit
