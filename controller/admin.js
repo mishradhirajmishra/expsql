@@ -51,7 +51,7 @@ module.exports.editGet=(req,res)=>{
 }
 
 module.exports.updatePost=(req,res)=>{
-    var id = req.body.id;
+    var id = req.params.id;
     var name = req.body.name;
     var date = req.body.date;
     
@@ -79,7 +79,7 @@ module.exports.updatePost=(req,res)=>{
 }
 
 module.exports.delete=(req,res,next)=>{
-    var id = req.body.id;
+     var id = req.params.id;
     var query="delete from event where id = '"+id+"'"
     con.query(query,(err,result)=>{    
     });

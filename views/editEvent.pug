@@ -4,10 +4,10 @@ block content
  .container
    .col-xl-8.offset-md-2
         h1.text-center #{title} 
-        form(action='/update' method="POST" enctype="multipart/form-data")
+        form(action='/update/'+event.id+'?_method=PUT' method="POST" enctype="multipart/form-data")
             .form-group
-                label(for='id') Name:
-                input#id.form-control(type='text' name='id' value=event.id)
+                label(for='id')
+                input#id.form-control(type="hidden" name="_method" value="PUT")
             .form-group
                 label(for='name') Name:
                 input#name.form-control(type='text' name='name' value=event.name)

@@ -29,10 +29,9 @@ block content
   var x=confirm('Are you sure')
   if(x==true){
   $.ajax({
-  url: '/',
+  url: '/'+id,
   type: "DELETE",
   datatype: "json",
-  data: {id:id},
   success: function (msg) {
   window.location = "http://localhost:3000";
   }

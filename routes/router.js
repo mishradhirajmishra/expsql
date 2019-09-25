@@ -6,6 +6,6 @@ router.get('/', cont.index );
 router.get('/add', cont.addGet );
 router.post('/', cont.addPost );
 router.get('/edit/:id', cont.editGet );
-router.post('/update', cont.updatePost );
-router.delete('/',cont.delete,cont.index );
+router.put('/update/:id', cont.updatePost );
+router.delete('/:id',cont.delete,cont.index );
 module.exports = router;
